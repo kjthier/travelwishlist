@@ -1,0 +1,31 @@
+[     {
+    "id": 21,
+    "name": "Australia",
+    "alpha2code": "AUS",
+    "alpha3code": "AU"
+    },
+    {
+      "id": 2,
+      "name": "Algeria",
+      "alpha2code": "DZ",
+      "alpha3code": "DZA"
+    },
+    {
+      "id": 3,
+      "name": "Bahrain",
+      "alpha2code": "BH",
+      "alpha3code": "BHR"
+    },
+    {
+      "id": 4,
+      "name": "Colombia",
+      "alpha2code": "CO",
+      "alpha3code": "COL"
+    },
+    {
+      "id": 5,
+      "name": "Fiji",
+      "alpha2code": "FJ",
+      "alpha3code": "FJI"
+    }
+  ]
