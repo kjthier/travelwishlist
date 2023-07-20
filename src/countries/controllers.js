@@ -27,10 +27,10 @@ export const createCountry = (req, res) => {
         if(results.rows.length > 0) {
             res.status(400).send('Country already exists')
         } else {
-            pool.query(createCountryQuery), [name, alpha2code, alpha3code], (error, results) => {
+            pool.query(createCountryQuery, [name, alpha2code, alpha3code], (error, results) => {
                 if(error) throw error
                 res.status(200).json('Country created successfully')
-            }
+            })
         }
     })
 }
