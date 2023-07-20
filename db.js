@@ -9,4 +9,10 @@ export const pool = new Pool({
     password: '12345',
     port: 5432
 })
+ 
+// pool.query('SELECT * FROM countries', (error, results) => {
+//     if(error) throw error
+//     console.log(results.rows)
+
+// })
 
