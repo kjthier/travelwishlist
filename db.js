@@ -6,8 +6,11 @@ export const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'countries',
-    password: '12345',
-    port: 5432
+    password: '',
+    port: 5432,
+    connectionTimeoutMillis: 5000,
+    idleTimeoutMillis: 30000,
+    max: 1
 })
  
 // pool.query('SELECT * FROM countries', (error, results) => {
@@ -15,4 +18,5 @@ export const pool = new Pool({
 //     console.log(results.rows)
 
 // })
+
 

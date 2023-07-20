@@ -13,21 +13,20 @@ export const pool = new Pool({
 import { getCountriesQuery, getCountryByIdQuery, createCountryQuery, deleteCountryQuery, updateCountryQuery } from './queries.js'
 
 export const getCountries = (req, res) => {
-    pool.query("SELECT * FROM countries", (error, results) => {
+    pool.query(getCountriesQuery, (error, results) => {
         if(error) throw error
         res.status(200).json(results.rows)
-    }
-  
-
+    })
+    // res.send('hello there' )
 }
 
 export const getCountryById = (req, res) => {
     const id = parseInt(req.params.id)
 
-    pool.query(getCountryByIdQuery), [id], (error, results) => {
+    pool.query(getCountryByIdQuery, [id], (error, results) => {
         if(error) throw error
         res.status(200).json(results.rows)
-    }
+    })
 }
 
 export const createCountry = (req, res) => {
@@ -50,18 +49,18 @@ export const createCountry = (req, res) => {
 export const deleteCountry = (req, res) => {
     const id = parseInt(req.params.id)
 
-    pool.query(deleteCountryQuery), [id], (error, results) => {
+    pool.query(deleteCountryQuery, [id], (error, results) => {
         if(error) throw error
         res.status(200).json('Country was removed')
-    }
+    })
 }
 
 export const updateCountry = (req, res) => {
     const id = parseInt(req.params.id)
     const { name, alpha2code, alpha3code } = req.body
 
-    pool.query(updateCountryQuery), [id, name, alpha2code, alpha3code], (error, results) => {
+    pool.query(updateCountryQuery, [id, name, alpha2code, alpha3code], (error, results) => {
         if(error) throw error
         res.status(201).json('Country updated successfully')
-    }
+    })
 }

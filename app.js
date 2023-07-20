@@ -5,7 +5,7 @@ import countriesRoutes from './src/countries/routes.js'
 dotenv.config();
 
 const app = express()
-const host = 3001
+const port = process.env.PORT || 3000
 
 app.use(express.json())
 
@@ -19,8 +19,5 @@ app.get('/', (req, res) => {
 
 
 app.use('/api/countries', countriesRoutes)
-
-
-
 
 
