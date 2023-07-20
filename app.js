@@ -13,8 +13,6 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
 
-app.get('/api/countries', getCountry)
-
 app.get('/', (req, res) => {
     res.send('<h2> <a href="/api/countries">Countries</h2>')
 })

@@ -2,10 +2,11 @@ import { pool } from '../../db.js'
 import { getCountriesQuery, getCountryByIdQuery, createCountryQuery, deleteCountryQuery, updateCountryQuery } from './queries.js'
 
 export const getCountries = (req, res) => {
-    pool.query(getCountriesQuery), (error, results) => {
-        if(error) throw error
-        res.status(200).json(results.rows)
-    }
+    // pool.query(getCountriesQuery), (error, results) => {
+    //     if(error) throw error
+    //     res.status(200).json(results.rows)
+    // }
+    res.send('hello there' )
 }
 
 export const getCountryById = (req, res) => {
@@ -20,7 +21,7 @@ export const getCountryById = (req, res) => {
 export const createCountry = (req, res) => {
     const { name, alpha2code, alpha3code } = req.body
 
-    pool.query(`SELECT * FROM countries WHERE name='${name}'`, [id], (error, results) => {
+    pool.query(`SELECT * FROM countries WHERE name='${name}'`, (error, results) => {
         if(error) throw error
 
         if(results.rows.length > 0) {
