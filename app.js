@@ -5,7 +5,7 @@ import countriesRoutes from './src/countries/routes.js'
 dotenv.config();
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.port || 3001
 
 app.use(express.json())
 
@@ -19,15 +19,4 @@ app.get('/', (req, res) => {
 
 app.use('/api/countries', countriesRoutes)
 
-
-
-// const getCountry = (req, res) => {
-//     // res.send('hello there' )
-//     pool.query('SELECT * FROM countries ', (err, result) => {
-//         if (err) {
-//             console.log(err)
-//         }
-//         res.status(200).send(countries)
-//     })
-// }
 
