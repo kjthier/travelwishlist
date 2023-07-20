@@ -10,3 +10,12 @@ export const pool = new Pool({
     port: 5432
 })
 
+// Test the connection
+pool.query('SELECT * FROM countries', (err, res) => {
+    if (err) {
+      console.error('Error connecting to the database:', err);
+    } else {
+      console.log('Connected to the database at:', res.rows[0].now);
+    }
+  });
+
