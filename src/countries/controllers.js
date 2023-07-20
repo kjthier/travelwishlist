@@ -41,10 +41,11 @@ export const createCountry = (req, res) => {
             pool.query(createCountryQuery, [name, alpha2code, alpha3code], (error, results) => {
                 if(error) throw error
                 res.status(200).json('Country created successfully')
-            }
-    )}
-    })
-}
+            })}}
+            )}
+   
+   
+        
 
 export const deleteCountry = (req, res) => {
     const id = parseInt(req.params.id)
