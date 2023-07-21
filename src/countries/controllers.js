@@ -29,20 +29,36 @@ export const getCountryById = (req, res) => {
     })
 }
 
+
+
 export const createCountry = (req, res) => {
-    const { name, alpha2code, alpha3code } = req.body
+const name = `'${req.body.name}'`
+  const alpha2code =`'${req.body.alpha2code}'`
+  const alpha3code = `'${req.body.alpha3code}'`
+  console.log(name ,  alpha2code, alpha3code)
+  if (!name || name.trim() === '') {
+    return res.status(400).send('Country name cannot be empty');
+  }
 
-    pool.query(`SELECT * FROM countries WHERE name='${name}'`, (error, results) => {
-        if(error) throw error
+  pool.query('SELECT * FROM countries WHERE name = $1', [name], (error, results) => {
+    if (error) throw error;
 
-        if(results.rows.length > 0) {
-            res.status(400).send('Country already exists')
-        } else {
-            pool.query(createCountryQuery, [name, alpha2code, alpha3code], (error, results) => {
-                if(error) throw error
-                res.status(200).json('Country created successfully')
-            })}}
-            )}
+    if (results.rows.length > 0) {
+      return res.status(400).send('Country already exists');
+    } else {
+      pool.query(createCountryQuery, [name, alpha2code, alpha3code], (error, results) => {
+        if (error) throw error;
+        res.status(200).json('Country created successfully');
+      });
+    }
+  });
+};
+
+
+
+
+
+  
    
    
         
