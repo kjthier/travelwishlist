@@ -35,7 +35,7 @@ export const createCountry = (req, res) => {
 const name = `'${req.body.name}'`
   const alpha2code =`'${req.body.alpha2code}'`
   const alpha3code = `'${req.body.alpha3code}'`
-  console.log(name ,  alpha2code, alpha3code)
+  
   if (!name || name.trim() === '') {
     return res.status(400).send('Country name cannot be empty');
   }
@@ -64,9 +64,9 @@ const name = `'${req.body.name}'`
         
 
 export const deleteCountry = (req, res) => {
-    const id = parseInt(req.params.id)
-
-    pool.query(deleteCountryQuery, [id], (error, results) => {
+    const idToDelete = req.params.id
+    console.log(idToDelete , ' id to delete ')
+    pool.query(deleteCountryQuery, [idToDelete], (error, results) => {
         if(error) throw error
         res.status(200).json('Country was removed')
     })
