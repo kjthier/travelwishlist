@@ -1,12 +1,28 @@
 import { pool } from '../../db.js'
 import { getCountriesQuery, getCountryByIdQuery, createCountryQuery, deleteCountryQuery, updateCountryQuery } from './queries.js'
+import ejs from 'ejs'
 
 export const getCountries = (req, res) => {
     pool.query(getCountriesQuery, (error, results) => {
         if(error) throw error
-        res.status(200).json(results.rows)
+        // res.status(200).json(results.rows)
+        ejs.renderFile('src/views/countries.ejs', { countries: results.rows }, (error, html) => {
+          if (error) throw error;
+          res.send(html);
     })
-    // res.send('hello there' )
+    })
+}
+
+export const createNewCountry = (req, res) => {
+  ejs.renderFile('src/views/createCountry.ejs', (error, html) => {
+    if (error) throw error;
+    res.send(html);
+  });
+};
+
+export const formCreateCountry = (req, res) => {
+  const { name, alpha2code, alpha3code } = req.body;
+  console.log(name, alpha2code, alpha3code);
 }
 
 export const getCountryById = (req, res) => {
@@ -40,6 +56,7 @@ const name = `'${req.body.name}'`
     }
   });
 };
+
 
 export const deleteCountry = (req, res) => {
     const idToDelete = req.params.id

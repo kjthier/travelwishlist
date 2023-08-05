@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Country</title>
+</head>
+<body>
+    <h1>New Country</h1>
+    <form action='/api/countries' method='post'>
+        <label for='name'>Name</label>
+        <input type='text' name='name' id='name'>
+        <br>
+        <label for='alpha2code'>Alpha2Code</label>
+        <input type='text' name='alpha2code' id='alpha2code'>
+        <br>
+        <label for='alpha3code'>Alpha3Code</label>
+        <input type='text' name='alpha3code' id='alpha3code'>
+        <br>
+        <button type='submit' value='Create'>
+    </form>
+</body>
+</html>
