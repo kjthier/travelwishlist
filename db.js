@@ -6,7 +6,7 @@ export const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'countries',
-    password: '',
+    password: '12345',
     port: 5432,
     connectionTimeoutMillis: 5000,
     idleTimeoutMillis: 30000,
