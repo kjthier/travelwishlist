@@ -4,7 +4,7 @@ import { getCountries, getCountryById, createCountry, deleteCountry, updateCount
 
 const router = express.Router()
 
-router.get('/create', createNewCountry)
+router.get('/form', createNewCountry)
 router.get('/', getCountries)
 router.get('/:id', getCountryById)
 router.post('/', createCountry)

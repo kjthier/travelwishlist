@@ -13,17 +13,8 @@ export const getCountries = (req, res) => {
     })
 }
 
-export const createNewCountry = (req, res) => {
-  ejs.renderFile('src/views/createCountry.ejs', (error, html) => {
-    if (error) throw error;
-    res.send(html);
-  });
-};
 
-export const formCreateCountry = (req, res) => {
-  const { name, alpha2code, alpha3code } = req.body;
-  console.log(name, alpha2code, alpha3code);
-}
+
 
 export const getCountryById = (req, res) => {
     const id = parseInt(req.params.id)
@@ -35,7 +26,7 @@ export const getCountryById = (req, res) => {
 }
 
 export const createCountry = (req, res) => {
-const name = `'${req.body.name}'`
+const name = `'${req.body.country}'`
   const alpha2code =`'${req.body.alpha2code}'`
   const alpha3code = `'${req.body.alpha3code}'`
   
@@ -76,3 +67,10 @@ export const updateCountry = (req, res) => {
         res.status(201).json('Country updated successfully')
     })
 }
+
+export const createNewCountry = (req, res) => {
+  ejs.renderFile('src/views/createCountry.ejs', (error, html) => {
+    if (error) throw error;
+    res.send(html);
+  });
+};
