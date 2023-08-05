@@ -1,15 +1,4 @@
-// import { pool } from '../../db.js'
-import pg from 'pg';
-
-const { Pool } = pg;
-
-export const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'countries',
-    password: '12345',
-    port: 5432
-})
+import { pool } from '../../db.js'
 import { getCountriesQuery, getCountryByIdQuery, createCountryQuery, deleteCountryQuery, updateCountryQuery } from './queries.js'
 
 export const getCountries = (req, res) => {
@@ -28,8 +17,6 @@ export const getCountryById = (req, res) => {
         res.status(200).json(results.rows)
     })
 }
-
-
 
 export const createCountry = (req, res) => {
 const name = `'${req.body.name}'`
@@ -53,15 +40,6 @@ const name = `'${req.body.name}'`
     }
   });
 };
-
-
-
-
-
-  
-   
-   
-        
 
 export const deleteCountry = (req, res) => {
     const idToDelete = req.params.id

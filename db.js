@@ -13,10 +13,5 @@ export const pool = new Pool({
     max: 1
 })
  
-// pool.query('SELECT * FROM countries', (error, results) => {
-//     if(error) throw error
-//     console.log(results.rows)
-
-// })
 
 
