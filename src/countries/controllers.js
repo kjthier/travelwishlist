@@ -13,9 +13,6 @@ export const getCountries = (req, res) => {
     })
 }
 
-
-
-
 export const getCountryById = (req, res) => {
     const id = parseInt(req.params.id)
 
@@ -26,7 +23,7 @@ export const getCountryById = (req, res) => {
 }
 
 export const createCountry = (req, res) => {
-const name = `'${req.body.country}'`
+  const name = `'${req.body.country}'`
   const alpha2code =`'${req.body.alpha2code}'`
   const alpha3code = `'${req.body.alpha3code}'`
   
@@ -47,7 +44,6 @@ const name = `'${req.body.country}'`
     }
   });
 };
-
 
 export const deleteCountry = (req, res) => {
     const idToDelete = req.params.id
