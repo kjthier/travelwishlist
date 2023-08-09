@@ -23,9 +23,9 @@ export const getCountryById = (req, res) => {
 }
 
 export const createCountry = (req, res) => {
-  const name = `'${req.body.country}'`
-  const alpha2code =`'${req.body.alpha2code}'`
-  const alpha3code = `'${req.body.alpha3code}'`
+  const name = req.body.country
+  const alpha2code =req.body.alpha2code
+  const alpha3code = req.body.alpha3code
   
   if (!name || name.trim() === '') {
     return res.status(400).send('Country name cannot be empty');
